@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,7 +18,6 @@
       --bg: #111018;
       --bg-2: #181420;
       --card: #211a2a;
-      --card-2: #2b2336;
       --ink: #f7eef7;
       --muted: #d1c3d5;
       --soft: #a99ab1;
@@ -27,7 +26,6 @@
       --accent: #ff8a3d;
       --accent-2: #b98cff;
       --accent-3: #75d8ff;
-      --danger: #ff5f8f;
       --shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
       --radius: 28px;
       --max: 1180px;
@@ -174,7 +172,9 @@
       margin: 0 0 1rem;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       line-height: 1.03;
       margin: 0;
     }
@@ -340,10 +340,12 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.15rem;
+      align-items: start;
     }
 
     .work-card {
-      min-height: 690px;
+      min-height: auto;
+      height: auto;
       border-radius: 26px;
       background:
         linear-gradient(180deg, rgba(247, 238, 247, 0.06), rgba(247, 238, 247, 0.025)),
@@ -375,7 +377,7 @@
     }
 
     .work-body {
-      padding: 1.05rem 1rem 1.2rem;
+      padding: 1rem;
     }
 
     .work-body h3 {
@@ -392,7 +394,7 @@
     }
 
     .work-description {
-      margin: 0.75rem 0 0;
+      margin: 0.55rem 0 0;
       color: var(--soft);
       font-size: 0.92rem;
     }
@@ -649,10 +651,12 @@
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <nav class="nav" aria-label="Navegación principal">
       <a class="brand" href="#inicio">Semilla Daltónica</a>
+
       <div class="nav-right">
         <div class="nav-links">
           <a href="#obra"><span class="lang-es">Obra</span><span class="lang-en">Work</span></a>
@@ -661,6 +665,7 @@
           <a href="#cv">CV</a>
           <a href="#contacto"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a>
         </div>
+
         <div class="lang-toggle" aria-label="Cambiar idioma">
           <button class="lang-btn active" type="button" data-set-lang="es">ES</button>
           <button class="lang-btn" type="button" data-set-lang="en">EN</button>
@@ -674,11 +679,13 @@
       <div>
         <p class="eyebrow lang-es">Artista e ilustradore</p>
         <p class="eyebrow lang-en">Artist and illustrator</p>
+
         <h1 id="titulo-principal">Semilla Daltónica</h1>
 
         <p class="lead lang-es">
           Ilustraciones donde la mirada se vuelve materia: figuras femeninas, insectos y mundos mínimos que revelan cómo el lente con que observamos la vida termina dándole sustancia a la realidad.
         </p>
+
         <p class="lead lang-en">
           Illustrations where the gaze becomes matter: feminine figures, insects and small worlds revealing how the lens through which we observe life ends up giving reality its substance.
         </p>
@@ -686,6 +693,7 @@
         <p class="hero-note lang-es">
           Obra en tinta de microfibra y marcadores al alcohol sobre papel. Una búsqueda íntima entre percepción, color, metamorfosis y presencia animal.
         </p>
+
         <p class="hero-note lang-en">
           Work made with fineliner ink and alcohol markers on paper. An intimate exploration of perception, color, metamorphosis and animal presence.
         </p>
@@ -706,12 +714,14 @@
         <div>
           <h2 id="obra-title"><span class="lang-es">Obra</span><span class="lang-en">Work</span></h2>
           <div class="series-name lang-es">Serie: Alta metamorfosis</div>
-          <div class="series-name lang-en">Series: High Metamorphosis</div>
+          <div class="series-name lang-en">Series: Alta metamorfosis</div>
         </div>
+
         <div>
           <p class="lang-es">
             Serie de ilustraciones realizadas en 2025. Cada pieza pone en tensión el rechazo habitual hacia los insectos con una estética de belleza fashion femenina: criaturas que dejan de ser amenaza o rareza para volverse presencia, espejo, ornamento, armadura o compañía.
           </p>
+
           <p class="lang-en">
             A 2025 illustration series. Each piece creates tension between the common rejection of insects and a feminine fashion-beauty aesthetic: creatures stop being threats or oddities and become presence, mirror, ornament, armor or company.
           </p>
@@ -723,6 +733,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="scolopendra-gigantea.png" alt="Ilustración Scolopendra gigantea de Semilla Daltónica" draggable="false" data-title="Scolopendra gigantea" />
           </div>
+
           <div class="work-body">
             <h3><em>Scolopendra gigantea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -735,6 +746,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" draggable="false" data-title="Actias luna" />
           </div>
+
           <div class="work-body">
             <h3><em>Actias luna</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -747,6 +759,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="grammostola-rosea.png" alt="Ilustración Grammostola rosea de Semilla Daltónica" draggable="false" data-title="Grammostola rosea" />
           </div>
+
           <div class="work-body">
             <h3><em>Grammostola rosea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -759,6 +772,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="hippodamia-convergens.png" alt="Ilustración Hippodamia convergens de Semilla Daltónica" draggable="false" data-title="Hippodamia convergens" />
           </div>
+
           <div class="work-body">
             <h3><em>Hippodamia convergens</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -771,6 +785,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="dichroplus-elongatus.png" alt="Ilustración Dichroplus elongatus de Semilla Daltónica" draggable="false" data-title="Dichroplus elongatus" />
           </div>
+
           <div class="work-body">
             <h3><em>Dichroplus elongatus</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -783,6 +798,7 @@
           <div class="protected-frame watermark">
             <img class="work-image-img js-lightbox" src="dynastes-hercules.png" alt="Ilustración Dynastes hercules de Semilla Daltónica" draggable="false" data-title="Dynastes hercules" />
           </div>
+
           <div class="work-body">
             <h3><em>Dynastes hercules</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -796,9 +812,11 @@
     <section id="statement" aria-labelledby="statement-title">
       <div class="section-head">
         <h2 id="statement-title">Statement</h2>
+
         <p class="lang-es">
           Una práctica visual íntima y ligeramente misteriosa, atravesada por la pregunta de cuándo algo empieza realmente a existir: si al ser visto, al ser nombrado o al ser percibido.
         </p>
+
         <p class="lang-en">
           An intimate and slightly mysterious visual practice, crossed by the question of when something truly begins to exist: when it is seen, named or perceived.
         </p>
@@ -809,20 +827,25 @@
           <p>
             Mi obra nace de una tensión entre mirar y percibir. Mirar puede ser una forma de encontrarse con algo antes de nombrarlo; percibir, en cambio, ya implica que la razón coloque una etiqueta para darle existencia. Trabajo en ese intervalo: el instante previo a que la realidad quede domesticada por una palabra.
           </p>
+
           <p>
             Elijo insectos porque suelen provocar rechazo, incomodidad o distancia. Me interesa llevar esas criaturas hacia una estética de belleza fashion femenina, donde lo que parecía extraño pueda volverse deseable, íntimo, elegante o poderoso. La figura y el insecto no se decoran entre sí: se contaminan, se acompañan, se transforman.
           </p>
+
           <p>
             El color aparece como un territorio experimental. Desde mi daltonismo, no lo pienso como una certeza estable, sino como una búsqueda: una sustancia que se prueba, se corrige, se exagera y se descubre. La tinta sostiene la línea, pero el color abre una zona nueva, más incierta y viva.
           </p>
         </div>
+
         <div class="lang-en">
           <p>
             My work is born from the tension between looking and perceiving. Looking can be a way of encountering something before naming it; perceiving, instead, already implies that reason places a label on it in order to grant it existence. I work within that interval: the instant before reality becomes domesticated by a word.
           </p>
+
           <p>
             I choose insects because they often generate rejection, discomfort or distance. I am interested in bringing those creatures into a feminine fashion-beauty aesthetic, where what once seemed strange can become desirable, intimate, elegant or powerful. The figure and the insect do not simply decorate one another: they contaminate, accompany and transform each other.
           </p>
+
           <p>
             Color appears as an experimental territory. Through my color blindness, I do not think of it as a stable certainty, but as a search: a substance that is tested, corrected, exaggerated and discovered. Ink holds the line, while color opens a new, more uncertain and living zone.
           </p>
@@ -833,9 +856,11 @@
     <section id="bio" aria-labelledby="bio-title">
       <div class="section-head">
         <h2 id="bio-title">Bio</h2>
+
         <p class="lang-es">
           Perfil breve para convocatorias, proyectos, encargos, muestras y contactos profesionales.
         </p>
+
         <p class="lang-en">
           Brief profile for open calls, projects, commissions, exhibitions and professional contact.
         </p>
@@ -845,9 +870,11 @@
         <div class="panel">
           <h3 class="lang-es">Sobre Semilla</h3>
           <h3 class="lang-en">About Semilla</h3>
+
           <p class="lang-es">
             Semilla Daltónica es artista e ilustradore de San Martín de los Andes, Neuquén, Argentina. Su trabajo cruza ilustración tradicional, figura femenina, insectos, color y símbolos de metamorfosis. Dibuja desde sus primeros recuerdos y ha usado la imagen como regulador emocional, canalizador espiritual, expresión creativa y política, y también como sustento económico.
           </p>
+
           <p class="lang-en">
             Semilla Daltónica is an artist and illustrator from San Martín de los Andes, Neuquén, Argentina. Their work crosses traditional illustration, feminine figures, insects, color and symbols of metamorphosis. Drawing has been present since their earliest memories, used as emotional regulation, spiritual channeling, creative and political expression, and also as economic support.
           </p>
@@ -856,9 +883,11 @@
         <div class="panel">
           <h3 class="lang-es">Práctica</h3>
           <h3 class="lang-en">Practice</h3>
+
           <p class="lang-es">
             Aunque la tinta es su zona de confianza, su práctica se abre cada vez más hacia el color y la mezcla de técnicas. Trabaja principalmente en papel, sin perder interés por las posibilidades de la digitalidad y su amable promesa de Ctrl+Z. Su formación combina talleres, experiencias disponibles y un aprendizaje sostenido entre cuaderno, observación e intuición.
           </p>
+
           <p class="lang-en">
             Although ink is their comfort zone, their practice is increasingly opening toward color and mixed techniques. They mainly work on paper, while remaining interested in the possibilities of digital media and its gentle promise of Ctrl+Z. Their formation combines workshops, available experiences and a sustained learning process between notebook, observation and intuition.
           </p>
@@ -869,9 +898,11 @@
     <section id="cv" aria-labelledby="cv-title">
       <div class="section-head">
         <h2 id="cv-title">CV</h2>
+
         <p class="lang-es">
           Trayectoria breve. Esta sección puede ampliarse con nuevas muestras, publicaciones, becas, ferias o colaboraciones.
         </p>
+
         <p class="lang-en">
           Brief trajectory. This section can be expanded with future exhibitions, publications, grants, fairs or collaborations.
         </p>
@@ -880,15 +911,18 @@
       <div class="panel cv-list">
         <div class="cv-item">
           <div class="year">2025</div>
+
           <div>
             <strong class="lang-es">Serie <em>Alta metamorfosis</em></strong>
-            <strong class="lang-en">Series <em>High Metamorphosis</em></strong><br />
+            <strong class="lang-en">Series <em>Alta metamorfosis</em></strong><br />
             <span class="lang-es">Ilustraciones en tinta de microfibra y marcadores al alcohol sobre papel. Formato A4.</span>
             <span class="lang-en">Illustrations made with fineliner ink and alcohol markers on paper. A4 format.</span>
           </div>
         </div>
+
         <div class="cv-item">
           <div class="year">2020–2021</div>
+
           <div>
             <strong class="lang-es">Ferias de artistas locales</strong>
             <strong class="lang-en">Local artists’ fairs</strong><br />
@@ -896,8 +930,10 @@
             <span class="lang-en">Participation in local fairs and spaces during the first years of the pandemic.</span>
           </div>
         </div>
+
         <div class="cv-item">
           <div class="year">Actual</div>
+
           <div>
             <strong class="lang-es">Obra, encargos y portfolio artístico digital</strong>
             <strong class="lang-en">Work, commissions and digital art portfolio</strong><br />
@@ -913,17 +949,22 @@
         <div>
           <p class="eyebrow lang-es">Contacto</p>
           <p class="eyebrow lang-en">Contact</p>
+
           <h2 id="contacto-title" class="lang-es">Encargos, convocatorias, comisiones y proyectos.</h2>
           <h2 class="lang-en">Commissions, open calls, custom work and projects.</h2>
+
           <p class="lang-es">
             Si una imagen te llamó, si querés proponer una colaboración o si estás armando una muestra, escribime. Estoy disponible para encargos personalizados, convocatorias, comisiones, prints y reproducciones con disponibilidad a consultar.
           </p>
+
           <p class="lang-en">
             If an image stayed with you, if you want to propose a collaboration or if you are organizing an exhibition, write to me. I am available for custom commissions, open calls, projects, prints and reproductions upon availability.
           </p>
+
           <p class="rights-note lang-es">
             Todas las obras e imágenes publicadas en este sitio pertenecen a Semilla Daltónica. No está autorizado su uso, descarga, reproducción, entrenamiento de sistemas de IA, modificación o redistribución sin permiso escrito.
           </p>
+
           <p class="rights-note lang-en">
             All artworks and images published on this site belong to Semilla Daltónica. Use, download, reproduction, AI training, modification or redistribution without written permission is not authorized.
           </p>
@@ -943,9 +984,11 @@
   <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada de obra">
     <div class="lightbox-inner">
       <button class="lightbox-close" type="button" aria-label="Cerrar">×</button>
+
       <div class="lightbox-image-wrap watermark">
         <img id="lightbox-image" src="" alt="" draggable="false" />
       </div>
+
       <div class="lightbox-caption" id="lightbox-caption"></div>
     </div>
   </div>
@@ -964,13 +1007,15 @@
     function setLanguage(lang) {
       html.setAttribute("data-lang", lang);
       html.setAttribute("lang", lang);
+
       langButtons.forEach((button) => {
         button.classList.toggle("active", button.dataset.setLang === lang);
       });
+
       try {
         localStorage.setItem("portfolio-language", lang);
       } catch (error) {
-        // Local storage may be disabled. The page still works without it.
+        /* Local storage may be disabled. The page still works without it. */
       }
     }
 
@@ -980,8 +1025,11 @@
 
     try {
       const savedLang = localStorage.getItem("portfolio-language");
+
       if (savedLang === "en" || savedLang === "es") {
         setLanguage(savedLang);
+      } else {
+        setLanguage("es");
       }
     } catch (error) {
       setLanguage("es");
@@ -991,6 +1039,7 @@
       lightboxImage.src = image.src;
       lightboxImage.alt = image.alt;
       lightboxCaption.textContent = image.dataset.title || image.alt || "Semilla Daltónica";
+
       lightbox.classList.add("open");
       lightbox.setAttribute("aria-hidden", "false");
       document.body.classList.add("no-scroll");
@@ -1000,6 +1049,7 @@
       lightbox.classList.remove("open");
       lightbox.setAttribute("aria-hidden", "true");
       document.body.classList.remove("no-scroll");
+
       lightboxImage.src = "";
       lightboxCaption.textContent = "";
     }
@@ -1022,6 +1072,7 @@
     });
 
     lightboxClose.addEventListener("click", closeLightbox);
+
     lightbox.addEventListener("click", (event) => {
       if (event.target === lightbox) {
         closeLightbox();
