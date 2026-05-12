@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio artístico digital de Semilla Daltonica: obra, proyectos, statement, CV y contacto." />
+  <meta name="author" content="Semilla Daltonica" />
+  <meta property="og:title" content="Semilla Daltonica | Portfolio artístico" />
+  <meta property="og:description" content="Obra, proyectos, statement, CV artístico y contacto." />
+  <meta property="og:type" content="website" />
+  <title>Semilla Daltonica | Portfolio artístico</title>
+
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --paper: #fffaf1;
+      --ink: #1f1b16;
+      --muted: #70665c;
+      --line: rgba(31, 27, 22, 0.16);
+      --accent: #9f3f2f;
+      --accent-soft: #e7c5b8;
+      --shadow: 0 24px 70px rgba(31, 27, 22, 0.12);
+      --radius: 28px;
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(159, 63, 47, 0.16), transparent 34rem),
+        radial-gradient(circle at bottom right, rgba(122, 91, 61, 0.12), transparent 32rem),
+        var(--bg);
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(244, 239, 230, 0.78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      font-size: 0.98rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem 4rem;
+    }
+
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 4rem 0;
+    }
+
+    .eyebrow {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.77rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0 0 1rem;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.04;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 7.8rem);
+      letter-spacing: -0.06em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 4.6rem);
+      letter-spacing: -0.045em;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      max-width: 42rem;
+      font-size: clamp(1.08rem, 2vw, 1.45rem);
+      color: var(--muted);
+      margin: 1.5rem 0 0;
+    }
+
+    .hero-actions {
+      margin-top: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0.85rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(31, 27, 22, 0.08);
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .hero-card {
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(255, 250, 241, 0.92), rgba(231, 197, 184, 0.55));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 1rem;
+      transform: rotate(1.2deg);
+    }
+
+    .art-placeholder {
+      min-height: 480px;
+      border-radius: calc(var(--radius) - 10px);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(31, 27, 22, 0.18), transparent 38%),
+        radial-gradient(circle at 78% 24%, rgba(159, 63, 47, 0.5), transparent 9rem),
+        radial-gradient(circle at 30% 70%, rgba(93, 69, 44, 0.34), transparent 12rem),
+        #d9c7ad;
+      display: grid;
+      place-items: end start;
+      padding: 1.25rem;
+    }
+
+    .caption {
+      max-width: 19rem;
+      padding: 0.9rem 1rem;
+      border-radius: 18px;
+      background: rgba(255, 250, 241, 0.86);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    section {
+      padding: 4.5rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 2rem;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .work-card {
+      min-height: 390px;
+      border-radius: 24px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(31, 27, 22, 0.08);
+    }
+
+    .work-image {
+      height: 260px;
+      background:
+        radial-gradient(circle at 70% 25%, rgba(159, 63, 47, 0.38), transparent 6rem),
+        linear-gradient(145deg, rgba(31, 27, 22, 0.12), transparent),
+        #d8c9b5;
+    }
+
+    .work-card:nth-child(2) .work-image {
+      background:
+        radial-gradient(circle at 32% 35%, rgba(159, 63, 47, 0.32), transparent 7rem),
+        linear-gradient(45deg, rgba(31, 27, 22, 0.16), transparent),
+        #cdbba0;
+    }
+
+    .work-card:nth-child(3) .work-image {
+      background:
+        radial-gradient(circle at 55% 60%, rgba(159, 63, 47, 0.35), transparent 8rem),
+        linear-gradient(160deg, rgba(31, 27, 22, 0.2), transparent),
+        #e1d0bb;
+    }
+
+    .work-card:nth-child(4) .work-image {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(159, 63, 47, 0.34), transparent 7rem),
+        linear-gradient(120deg, rgba(31, 27, 22, 0.15), transparent),
+        #d0c1aa;
+    }
+
+    .work-card:nth-child(5) .work-image {
+      background:
+        radial-gradient(circle at 70% 70%, rgba(159, 63, 47, 0.36), transparent 7rem),
+        linear-gradient(30deg, rgba(31, 27, 22, 0.18), transparent),
+        #dfcbb1;
+    }
+
+    .work-card:nth-child(6) .work-image {
+      background:
+        radial-gradient(circle at 48% 20%, rgba(159, 63, 47, 0.31), transparent 7rem),
+        linear-gradient(210deg, rgba(31, 27, 22, 0.17), transparent),
+        #c9b99f;
+    }
+
+    .work-body {
+      padding: 1rem;
+    }
+
+    .meta {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0.35rem 0 0;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .panel {
+      border-radius: 24px;
+      background: rgba(255, 250, 241, 0.72);
+      border: 1px solid var(--line);
+      padding: 1.25rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .panel ul {
+      padding-left: 1.1rem;
+      margin: 1rem 0 0;
+    }
+
+    .cv-list {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .cv-item {
+      display: grid;
+      grid-template-columns: 7rem 1fr;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .year {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 800;
+    }
+
+    .contact-card {
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      padding: clamp(1.5rem, 4vw, 3rem);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 1.5rem;
+    }
+
+    .contact-card p {
+      color: rgba(255, 250, 241, 0.72);
+      margin: 1rem 0 0;
+      max-width: 38rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.7rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 700;
+    }
+
+    .contact-links a {
+      color: var(--paper);
+      border-bottom: 1px solid rgba(255, 250, 241, 0.32);
+      padding-bottom: 0.2rem;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2rem 1.25rem 3rem;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 880px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.25rem;
+      }
+
+      .hero,
+      .section-head,
+      .split,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 3rem 0;
+      }
+
+      .hero-card {
+        transform: none;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      main {
+        padding-inline: 1rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-placeholder {
+        min-height: 360px;
+      }
+
+      .cv-item {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio">Semilla Daltonica</a>
+      <div class="nav-links">
+        <a href="#obra">Obra</a>
+        <a href="#statement">Statement</a>
+        <a href="#bio">Bio</a>
+        <a href="#cv">CV</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="titulo-principal">
+      <div>
+        <p class="eyebrow">Portfolio artístico</p>
+        <h1 id="titulo-principal">Semilla Daltonica</h1>
+        <p class="lead">
+          Obra visual, procesos sensibles y exploraciones poéticas sobre cuerpo, territorio, memoria y transformación.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#obra">Ver obra</a>
+          <a class="button" href="#contacto">Contacto</a>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="Imagen destacada del portfolio">
+        <div class="art-placeholder">
+          <p class="caption">
+            Reemplazar este bloque por una obra principal: archivo JPG o PNG dentro de una carpeta <strong>assets</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="obra" aria-labelledby="obra-title">
+      <div class="section-head">
+        <h2 id="obra-title">Obra</h2>
+        <p>
+          Selección de trabajos recientes. Podés organizar esta sección por series, técnicas, años o núcleos conceptuales.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra I</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra II</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra III</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra IV</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra V</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+
+        <article class="work-card">
+          <div class="work-image" aria-hidden="true"></div>
+          <div class="work-body">
+            <h3>Título de obra VI</h3>
+            <p class="meta">Año · Técnica · Medidas/Formato</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="statement" aria-labelledby="statement-title">
+      <div class="section-head">
+        <h2 id="statement-title">Statement</h2>
+        <p>
+          Esta sección debe decir qué busca la obra, no solo qué muestra. Conviene que sea breve, concreto y propio.
+        </p>
+      </div>
+
+      <div class="panel">
+        <p>
+          Mi práctica artística trabaja con imágenes, símbolos y materiales como formas de investigar la memoria, el territorio y las tensiones entre lo íntimo y lo colectivo. Me interesa construir piezas que funcionen como huellas: registros sensibles de procesos, vínculos, pérdidas, desplazamientos y transformaciones.
+        </p>
+        <p>
+          A través de la composición visual, la materia y el archivo, busco abrir un espacio donde lo cotidiano pueda volverse pregunta. La obra aparece como una zona de cruce entre experiencia personal, imaginación poética y lectura crítica del presente.
+        </p>
+      </div>
+    </section>
+
+    <section id="bio" aria-labelledby="bio-title">
+      <div class="section-head">
+        <h2 id="bio-title">Bio</h2>
+        <p>
+          Perfil breve para convocatorias, curadores, becas, residencias y contactos profesionales.
+        </p>
+      </div>
+
+      <div class="split">
+        <div class="panel">
+          <h3>Sobre mí</h3>
+          <p>
+            Semilla Daltonica es un proyecto artístico orientado a la exploración visual, simbólica y sensible. Su trabajo cruza imagen, proceso, territorio y experiencia, con interés en obras que articulan poética personal y lectura social.
+          </p>
+        </div>
+
+        <div class="panel">
+          <h3>Líneas de trabajo</h3>
+          <ul>
+            <li>Imagen, memoria y archivo.</li>
+            <li>Territorio, cuerpo y transformación.</li>
+            <li>Procesos visuales y experimentación material.</li>
+            <li>Obra artística, educación y comunidad.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="cv" aria-labelledby="cv-title">
+      <div class="section-head">
+        <h2 id="cv-title">CV</h2>
+        <p>
+          Reemplazar estos ejemplos por formación, muestras, becas, talleres, residencias, publicaciones y experiencias reales.
+        </p>
+      </div>
+
+      <div class="panel cv-list">
+        <div class="cv-item">
+          <div class="year">2026</div>
+          <div>
+            <strong>Proyecto / muestra / convocatoria</strong><br />
+            Espacio, ciudad o institución.
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="year">2025</div>
+          <div>
+            <strong>Formación / taller / clínica</strong><br />
+            Docente, institución o espacio de formación.
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="year">2024</div>
+          <div>
+            <strong>Participación artística / publicación</strong><br />
+            Breve descripción profesional.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" aria-labelledby="contacto-title">
+      <div class="contact-card">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contacto-title">Trabajos, muestras, convocatorias y proyectos.</h2>
+          <p>
+            Para consultas, invitaciones, colaboraciones o solicitud de dossier artístico, escribir por mail o redes.
+          </p>
+        </div>
+
+        <div class="contact-links" aria-label="Enlaces de contacto">
+          <a href="mailto:semilladaltonica@proton.me">semilladaltonica@proton.me</a>
+          <a href="https://github.com/Semilla-Daltonica" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Semilla Daltonica. Portfolio artístico digital.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
