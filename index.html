@@ -241,47 +241,21 @@
       box-shadow: 0 16px 45px rgba(31, 27, 22, 0.08);
     }
 
-    .work-image {
+    .work-image-img {
+      width: 100%;
       height: 260px;
-      background:
-        radial-gradient(circle at 70% 25%, rgba(159, 63, 47, 0.38), transparent 6rem),
-        linear-gradient(145deg, rgba(31, 27, 22, 0.12), transparent),
-        #d8c9b5;
+      object-fit: cover;
+      background: #d8c9b5;
     }
 
-    .work-card:nth-child(2) .work-image {
-      background:
-        radial-gradient(circle at 32% 35%, rgba(159, 63, 47, 0.32), transparent 7rem),
-        linear-gradient(45deg, rgba(31, 27, 22, 0.16), transparent),
-        #cdbba0;
-    }
-
-    .work-card:nth-child(3) .work-image {
-      background:
-        radial-gradient(circle at 55% 60%, rgba(159, 63, 47, 0.35), transparent 8rem),
-        linear-gradient(160deg, rgba(31, 27, 22, 0.2), transparent),
-        #e1d0bb;
-    }
-
-    .work-card:nth-child(4) .work-image {
-      background:
-        radial-gradient(circle at 20% 20%, rgba(159, 63, 47, 0.34), transparent 7rem),
-        linear-gradient(120deg, rgba(31, 27, 22, 0.15), transparent),
-        #d0c1aa;
-    }
-
-    .work-card:nth-child(5) .work-image {
-      background:
-        radial-gradient(circle at 70% 70%, rgba(159, 63, 47, 0.36), transparent 7rem),
-        linear-gradient(30deg, rgba(31, 27, 22, 0.18), transparent),
-        #dfcbb1;
-    }
-
-    .work-card:nth-child(6) .work-image {
-      background:
-        radial-gradient(circle at 48% 20%, rgba(159, 63, 47, 0.31), transparent 7rem),
-        linear-gradient(210deg, rgba(31, 27, 22, 0.17), transparent),
-        #c9b99f;
+    .hero-image {
+      width: 100%;
+      min-height: 480px;
+      max-height: 640px;
+      object-fit: cover;
+      border-radius: calc(var(--radius) - 10px);
+      border: 1px solid var(--line);
+      background: #d8c9b5;
     }
 
     .work-body {
@@ -458,11 +432,7 @@
       </div>
 
       <div class="hero-card" aria-label="Imagen destacada del portfolio">
-        <div class="art-placeholder">
-          <p class="caption">
-            Reemplazar este bloque por una obra principal: archivo JPG o PNG dentro de una carpeta <strong>assets</strong>.
-          </p>
-        </div>
+        <img class="hero-image" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" />
       </div>
     </section>
 
@@ -476,7 +446,7 @@
 
       <div class="grid">
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="scolopendra-gigantea.png" alt="Ilustración Scolopendra gigantea de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Scolopendra gigantea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -484,7 +454,7 @@
         </article>
 
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Actias luna</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -492,7 +462,7 @@
         </article>
 
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="grammostola-rosea.png" alt="Ilustración Grammostola rosea de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Grammostola rosea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -500,7 +470,7 @@
         </article>
 
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="hippodamia-convergens.png" alt="Ilustración Hippodamia convergens de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Hippodamia convergens</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -508,7 +478,7 @@
         </article>
 
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="dichroplus-elongatus.png" alt="Ilustración Dichroplus elongatus de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Dichroplus elongatus</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
@@ -516,7 +486,7 @@
         </article>
 
         <article class="work-card">
-          <div class="work-image" aria-hidden="true"></div>
+          <img class="work-image-img" src="dynastes-hercules.png" alt="Ilustración Dynastes hercules de Semilla Daltónica" />
           <div class="work-body">
             <h3><em>Dynastes hercules</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
