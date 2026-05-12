@@ -3,25 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio artístico digital de Semilla Daltónica: ilustración, mundos sensibles, figuras femeninas e insectos." />
+  <meta name="description" content="Portfolio artístico digital de Semilla Daltónica: ilustración, obra, statement, bio, CV y contacto." />
   <meta name="author" content="Semilla Daltónica" />
   <meta property="og:title" content="Semilla Daltónica | Portfolio artístico" />
-  <meta property="og:description" content="Ilustración, obra, statement, bio, CV artístico y contacto." />
+  <meta property="og:description" content="Ilustraciones donde la figura femenina, los insectos y la percepción construyen mundos mínimos." />
   <meta property="og:type" content="website" />
   <title>Semilla Daltónica | Portfolio artístico</title>
 
   <style>
     :root {
-      --bg: #f8edf4;
-      --paper: #fffaf7;
-      --ink: #241d2f;
-      --muted: #76687f;
-      --line: rgba(36, 29, 47, 0.15);
-      --accent: #f06a2f;
-      --accent-soft: #d9c5ff;
-      --shadow: 0 24px 70px rgba(31, 27, 22, 0.12);
+      --bg: #121017;
+      --bg-2: #17131f;
+      --paper: #211a2a;
+      --paper-2: #2a2235;
+      --ink: #f7edf7;
+      --muted: #cdbfd1;
+      --soft: #9f8fa7;
+      --line: rgba(247, 237, 247, 0.14);
+      --line-strong: rgba(247, 237, 247, 0.24);
+      --accent: #ff8a3d;
+      --accent-2: #b98cff;
+      --accent-3: #75d8ff;
+      --accent-soft: rgba(255, 138, 61, 0.16);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
       --radius: 28px;
-      --max: 1120px;
+      --max: 1180px;
     }
 
     * {
@@ -37,10 +43,12 @@
       font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(240, 106, 47, 0.16), transparent 34rem),
-        radial-gradient(circle at bottom right, rgba(75, 190, 210, 0.16), transparent 32rem),
-        var(--bg);
+        radial-gradient(circle at 16% 8%, rgba(185, 140, 255, 0.20), transparent 30rem),
+        radial-gradient(circle at 88% 12%, rgba(117, 216, 255, 0.13), transparent 28rem),
+        radial-gradient(circle at 50% 92%, rgba(255, 138, 61, 0.14), transparent 32rem),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
       line-height: 1.55;
+      min-height: 100vh;
     }
 
     a {
@@ -58,8 +66,8 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      backdrop-filter: blur(18px);
-      background: rgba(244, 239, 230, 0.78);
+      backdrop-filter: blur(20px);
+      background: rgba(18, 16, 23, 0.78);
       border-bottom: 1px solid var(--line);
     }
 
@@ -75,7 +83,7 @@
 
     .brand {
       font-size: 0.98rem;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 700;
     }
@@ -89,8 +97,14 @@
       color: var(--muted);
     }
 
+    .nav-links a {
+      opacity: 0.86;
+      transition: color 160ms ease, opacity 160ms ease;
+    }
+
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--accent-3);
+      opacity: 1;
     }
 
     main {
@@ -100,21 +114,21 @@
     }
 
     .hero {
-      min-height: 82vh;
+      min-height: 84vh;
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
+      grid-template-columns: 0.95fr 1.05fr;
       align-items: center;
-      gap: 3rem;
-      padding: 4rem 0;
+      gap: clamp(2rem, 5vw, 4rem);
+      padding: 4rem 0 5rem;
     }
 
     .eyebrow {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.77rem;
-      color: var(--accent);
-      font-weight: 700;
+      letter-spacing: 0.18em;
+      font-size: 0.74rem;
+      color: var(--accent-3);
+      font-weight: 800;
       margin: 0 0 1rem;
     }
 
@@ -125,12 +139,12 @@
     }
 
     h1 {
-      font-size: clamp(3rem, 9vw, 7.8rem);
+      font-size: clamp(3rem, 9vw, 7.4rem);
       letter-spacing: -0.06em;
     }
 
     h2 {
-      font-size: clamp(2rem, 5vw, 4.6rem);
+      font-size: clamp(2rem, 5vw, 4.5rem);
       letter-spacing: -0.045em;
       margin-bottom: 1rem;
     }
@@ -141,10 +155,18 @@
     }
 
     .lead {
-      max-width: 42rem;
-      font-size: clamp(1.08rem, 2vw, 1.45rem);
+      max-width: 44rem;
+      font-size: clamp(1.12rem, 2vw, 1.55rem);
       color: var(--muted);
       margin: 1.5rem 0 0;
+    }
+
+    .hero-note {
+      max-width: 37rem;
+      margin: 1.15rem 0 0;
+      color: var(--soft);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.98rem;
     }
 
     .hero-actions {
@@ -162,59 +184,71 @@
       min-height: 46px;
       padding: 0.85rem 1.1rem;
       border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--paper);
-      font-weight: 700;
-      box-shadow: 0 10px 30px rgba(31, 27, 22, 0.08);
+      border: 1px solid var(--line-strong);
+      background: rgba(247, 237, 247, 0.06);
+      color: var(--ink);
+      font-weight: 800;
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(117, 216, 255, 0.5);
+      background: rgba(117, 216, 255, 0.08);
     }
 
     .button.primary {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #120f16;
+      border-color: transparent;
     }
 
     .hero-card {
       border-radius: var(--radius);
-      background: linear-gradient(145deg, rgba(255, 250, 241, 0.92), rgba(231, 197, 184, 0.55));
+      background:
+        linear-gradient(145deg, rgba(247, 237, 247, 0.09), rgba(247, 237, 247, 0.03)),
+        var(--paper);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
-      padding: 1rem;
-      transform: rotate(1.2deg);
+      padding: 0.85rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .art-placeholder {
-      min-height: 480px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% -30% auto auto;
+      width: 20rem;
+      height: 20rem;
+      border-radius: 50%;
+      background: rgba(117, 216, 255, 0.16);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .hero-image {
+      width: 100%;
+      min-height: 520px;
+      max-height: 680px;
+      object-fit: contain;
+      object-position: center top;
       border-radius: calc(var(--radius) - 10px);
       border: 1px solid var(--line);
-      background:
-        linear-gradient(135deg, rgba(31, 27, 22, 0.18), transparent 38%),
-        radial-gradient(circle at 78% 24%, rgba(159, 63, 47, 0.5), transparent 9rem),
-        radial-gradient(circle at 30% 70%, rgba(93, 69, 44, 0.34), transparent 12rem),
-        #d9c7ad;
-      display: grid;
-      place-items: end start;
-      padding: 1.25rem;
-    }
-
-    .caption {
-      max-width: 19rem;
-      padding: 0.9rem 1rem;
-      border-radius: 18px;
-      background: rgba(255, 250, 241, 0.86);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.92rem;
-      color: var(--muted);
+      background: #18131f;
+      position: relative;
+      z-index: 1;
     }
 
     section {
-      padding: 4.5rem 0;
+      padding: 5rem 0;
       border-top: 1px solid var(--line);
     }
 
     .section-head {
       display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
+      grid-template-columns: 0.72fr 1.28fr;
       gap: 2rem;
       align-items: start;
       margin-bottom: 2rem;
@@ -229,46 +263,53 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      gap: 1.15rem;
     }
 
     .work-card {
-      min-height: 570px;
-      border-radius: 24px;
-      background: var(--paper);
+      min-height: 585px;
+      border-radius: 26px;
+      background:
+        linear-gradient(180deg, rgba(247, 237, 247, 0.06), rgba(247, 237, 247, 0.025)),
+        var(--paper);
       border: 1px solid var(--line);
       overflow: hidden;
-      box-shadow: 0 16px 45px rgba(31, 27, 22, 0.08);
+      box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 138, 61, 0.38);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
     }
 
     .work-image-img {
       width: 100%;
-      height: 420px;
-      object-fit: cover;
+      height: 430px;
+      object-fit: contain;
       object-position: center top;
+      padding: 0.75rem;
       display: block;
-      background: #d8c9b5;
-    }
-
-    .hero-image {
-      width: 100%;
-      min-height: 480px;
-      max-height: 640px;
-      object-fit: cover;
-      border-radius: calc(var(--radius) - 10px);
-      border: 1px solid var(--line);
-      background: #d8c9b5;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(185, 140, 255, 0.12), transparent 16rem),
+        #18131f;
+      border-bottom: 1px solid var(--line);
     }
 
     .work-body {
-      padding: 1rem;
+      padding: 1.05rem 1rem 1.15rem;
+    }
+
+    .work-body h3 {
+      color: var(--ink);
     }
 
     .meta {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.86rem;
       color: var(--muted);
-      margin: 0.35rem 0 0;
+      margin: 0.45rem 0 0;
     }
 
     .split {
@@ -279,14 +320,25 @@
 
     .panel {
       border-radius: 24px;
-      background: rgba(255, 250, 241, 0.72);
+      background:
+        linear-gradient(180deg, rgba(247, 237, 247, 0.07), rgba(247, 237, 247, 0.03)),
+        var(--paper);
       border: 1px solid var(--line);
-      padding: 1.25rem;
+      padding: 1.35rem;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
     }
 
     .panel p,
     .panel li {
       color: var(--muted);
+    }
+
+    .panel p {
+      margin-top: 0;
+    }
+
+    .panel p:last-child {
+      margin-bottom: 0;
     }
 
     .panel ul {
@@ -307,25 +359,34 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .cv-item:last-child {
+      border-bottom: 0;
+    }
+
     .year {
       color: var(--accent);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .contact-card {
       border-radius: var(--radius);
-      background: var(--ink);
-      color: var(--paper);
+      background:
+        radial-gradient(circle at 16% 16%, rgba(255, 138, 61, 0.18), transparent 18rem),
+        radial-gradient(circle at 86% 12%, rgba(117, 216, 255, 0.16), transparent 18rem),
+        #0f0d14;
+      color: var(--ink);
       padding: clamp(1.5rem, 4vw, 3rem);
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: end;
       gap: 1.5rem;
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow);
     }
 
     .contact-card p {
-      color: rgba(255, 250, 241, 0.72);
+      color: var(--muted);
       margin: 1rem 0 0;
       max-width: 38rem;
     }
@@ -334,25 +395,52 @@
       display: grid;
       gap: 0.7rem;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .contact-links a {
-      color: var(--paper);
-      border-bottom: 1px solid rgba(255, 250, 241, 0.32);
+      color: var(--ink);
+      border-bottom: 1px solid rgba(247, 237, 247, 0.28);
       padding-bottom: 0.2rem;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent-3);
     }
 
     footer {
       max-width: var(--max);
       margin: 0 auto;
       padding: 2rem 1.25rem 3rem;
-      color: var(--muted);
+      color: var(--soft);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.9rem;
     }
 
-    @media (max-width: 880px) {
+    ::selection {
+      background: rgba(255, 138, 61, 0.35);
+      color: var(--ink);
+    }
+
+    @media (max-width: 940px) {
+      .hero,
+      .section-head,
+      .split,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 3rem 0 4rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 700px) {
       .nav {
         align-items: flex-start;
         flex-direction: column;
@@ -364,38 +452,20 @@
         padding-bottom: 0.25rem;
       }
 
-      .hero,
-      .section-head,
-      .split,
-      .contact-card {
+      .grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
+      .hero-image {
+        min-height: 380px;
+      }
+
+      .work-card {
         min-height: auto;
-        padding: 3rem 0;
       }
 
-      .hero-card {
-        transform: none;
-      }
-
-      .grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 620px) {
-      main {
-        padding-inline: 1rem;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .art-placeholder {
-        min-height: 360px;
+      .work-image-img {
+        height: 390px;
       }
 
       .cv-item {
@@ -422,10 +492,13 @@
   <main>
     <section class="hero" id="inicio" aria-labelledby="titulo-principal">
       <div>
-        <p class="eyebrow">Portfolio artístico</p>
+        <p class="eyebrow">Ilustración · San Martín de los Andes</p>
         <h1 id="titulo-principal">Semilla Daltónica</h1>
         <p class="lead">
           Ilustraciones donde la mirada se vuelve materia: figuras femeninas, insectos y mundos mínimos que revelan cómo el lente con que observamos la vida termina dándole sustancia a la realidad.
+        </p>
+        <p class="hero-note">
+          Obra en tinta de microfibra y marcadores al alcohol sobre papel. Exploraciones visuales entre percepción, color, metamorfosis y presencia animal.
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#obra">Ver obra</a>
@@ -501,16 +574,19 @@
       <div class="section-head">
         <h2 id="statement-title">Statement</h2>
         <p>
-          Esta sección debe decir qué busca la obra, no solo qué muestra. Conviene que sea breve, concreto y propio.
+          Una práctica visual atravesada por la percepción, los cuerpos, las criaturas pequeñas y la pregunta por aquello que aparece cuando una imagen es observada con insistencia.
         </p>
       </div>
 
       <div class="panel">
         <p>
-          Mi práctica nace de una pregunta sobre la percepción: qué sucede cuando el mundo deja de ser algo fijo y empieza a revelarse como una materia sensible, afectada por el lente con el que miramos. Trabajo desde la ilustración para construir escenas donde lo femenino, lo orgánico y lo insectil conviven como presencias ambiguas: delicadas, extrañas, íntimas y mutantes.
+          Mi obra explora la relación entre mirada y realidad. Me interesa pensar la percepción no como una ventana neutral, sino como una fuerza que modifica lo que toca: un lente capaz de dar cuerpo, color y sustancia a aquello que parecía mínimo, lateral o imperceptible.
         </p>
         <p>
-          Me interesan las imágenes que parecen guardar un secreto. Cuerpos, alas, antenas, ojos, flores y pequeñas criaturas funcionan como signos de transformación. En ese cruce busco una poética visual suave, pero no inocente: un universo pastel atravesado por apariciones intensas de color, donde la ternura también puede ser misterio.
+          Trabajo con figuras femeninas, insectos y organismos que aparecen entre lo íntimo y lo extraño. En esas presencias busco una sensibilidad de metamorfosis: cuerpos que observan y son observados, criaturas que funcionan como símbolos de transformación, defensa, belleza, fragilidad o supervivencia.
+        </p>
+        <p>
+          Desde la ilustración en papel, la línea y el color construyen escenas donde lo biológico se vuelve imaginario y lo cotidiano se desplaza hacia una atmósfera más misteriosa. Cada imagen propone una forma de mirar: no para fijar la realidad, sino para sospechar de ella.
         </p>
       </div>
     </section>
@@ -527,17 +603,17 @@
         <div class="panel">
           <h3>Sobre mí</h3>
           <p>
-            Semilla Daltónica es ilustradora en San Martín de los Andes, Neuquén, Argentina. Su obra explora la percepción, la figura femenina y el mundo de los insectos como territorios simbólicos donde lo cotidiano se vuelve extraño, sensible y transformador.
+            Semilla Daltónica es ilustradora de San Martín de los Andes, Neuquén, Argentina. Su trabajo desarrolla escenas atravesadas por figuras femeninas, insectos, color y símbolos de metamorfosis, con una búsqueda personal y explorativa sobre la percepción como forma de construir realidad.
           </p>
         </div>
 
         <div class="panel">
           <h3>Líneas de trabajo</h3>
           <ul>
-            <li>Ilustración, percepción y mundos sensibles.</li>
-            <li>Figura femenina, metamorfosis y misterio.</li>
-            <li>Insectos, naturaleza mínima y símbolos orgánicos.</li>
-            <li>Paletas pastel con irrupciones saturadas de naranja, violeta y celeste.</li>
+            <li>Ilustración tradicional sobre papel.</li>
+            <li>Figura femenina, insectos y mundos mínimos.</li>
+            <li>Percepción, metamorfosis y extrañeza sensible.</li>
+            <li>Color, línea, detalle y presencia simbólica.</li>
           </ul>
         </div>
       </div>
@@ -547,30 +623,23 @@
       <div class="section-head">
         <h2 id="cv-title">CV</h2>
         <p>
-          Reemplazar estos ejemplos por formación, muestras, becas, talleres, residencias, publicaciones y experiencias reales.
+          Esta sección puede completarse con formación, muestras, talleres, convocatorias, residencias, publicaciones y experiencias vinculadas a la ilustración.
         </p>
       </div>
 
       <div class="panel cv-list">
         <div class="cv-item">
-          <div class="year">2026</div>
-          <div>
-            <strong>Proyecto / muestra / convocatoria</strong><br />
-            Espacio, ciudad o institución.
-          </div>
-        </div>
-        <div class="cv-item">
           <div class="year">2025</div>
           <div>
-            <strong>Formación / taller / clínica</strong><br />
-            Docente, institución o espacio de formación.
+            <strong>Serie de ilustraciones sobre figura femenina e insectos</strong><br />
+            Tinta de microfibra y marcadores al alcohol sobre papel. Formato A4.
           </div>
         </div>
         <div class="cv-item">
-          <div class="year">2024</div>
+          <div class="year">Actual</div>
           <div>
-            <strong>Participación artística / publicación</strong><br />
-            Breve descripción profesional.
+            <strong>Portfolio artístico digital</strong><br />
+            Desarrollo de obra, presentación profesional y búsqueda de convocatorias artísticas.
           </div>
         </div>
       </div>
@@ -580,7 +649,7 @@
       <div class="contact-card">
         <div>
           <p class="eyebrow">Contacto</p>
-          <h2 id="contacto-title">Trabajos, muestras, convocatorias y proyectos.</h2>
+          <h2 id="contacto-title">Obra, muestras, convocatorias y proyectos.</h2>
           <p>
             Para consultas, invitaciones, colaboraciones o solicitud de dossier artístico, escribir por mail o redes.
           </p>
@@ -596,7 +665,7 @@
   </main>
 
   <footer>
-    © <span id="year"></span> Semilla Daltónica. Portfolio de ilustración.
+    © <span id="year"></span> Semilla Daltónica. Portfolio artístico digital.
   </footer>
 
   <script>
