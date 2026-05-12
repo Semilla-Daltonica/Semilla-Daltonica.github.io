@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Portfolio artístico digital de Semilla Daltónica: ilustración, obra, statement, bio, CV y contacto." />
+  <meta name="description" content="Portfolio artístico digital de Semilla Daltónica: artista e ilustradore. Ilustración tradicional, figura femenina, insectos, percepción y color." />
   <meta name="author" content="Semilla Daltónica" />
+  <meta name="robots" content="index, follow, noimageai, noai" />
+  <meta name="googlebot" content="index, follow, noimageai, noai" />
+  <meta name="bingbot" content="index, follow, noimageai, noai" />
   <meta property="og:title" content="Semilla Daltónica | Portfolio artístico" />
   <meta property="og:description" content="Ilustraciones donde la figura femenina, los insectos y la percepción construyen mundos mínimos." />
   <meta property="og:type" content="website" />
@@ -12,22 +15,24 @@
 
   <style>
     :root {
-      --bg: #121017;
-      --bg-2: #17131f;
-      --paper: #211a2a;
-      --paper-2: #2a2235;
-      --ink: #f7edf7;
-      --muted: #cdbfd1;
-      --soft: #9f8fa7;
-      --line: rgba(247, 237, 247, 0.14);
-      --line-strong: rgba(247, 237, 247, 0.24);
+      --bg: #111018;
+      --bg-2: #181420;
+      --card: #211a2a;
+      --card-2: #2b2336;
+      --ink: #f7eef7;
+      --muted: #d1c3d5;
+      --soft: #a99ab1;
+      --line: rgba(247, 238, 247, 0.14);
+      --line-strong: rgba(247, 238, 247, 0.26);
       --accent: #ff8a3d;
       --accent-2: #b98cff;
       --accent-3: #75d8ff;
-      --accent-soft: rgba(255, 138, 61, 0.16);
-      --shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+      --danger: #ff5f8f;
+      --shadow: 0 30px 90px rgba(0, 0, 0, 0.45);
       --radius: 28px;
       --max: 1180px;
+      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
     }
 
     * {
@@ -40,15 +45,20 @@
 
     body {
       margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--sans);
       color: var(--ink);
       background:
-        radial-gradient(circle at 16% 8%, rgba(185, 140, 255, 0.20), transparent 30rem),
-        radial-gradient(circle at 88% 12%, rgba(117, 216, 255, 0.13), transparent 28rem),
-        radial-gradient(circle at 50% 92%, rgba(255, 138, 61, 0.14), transparent 32rem),
+        radial-gradient(circle at 14% 8%, rgba(185, 140, 255, 0.20), transparent 30rem),
+        radial-gradient(circle at 86% 12%, rgba(117, 216, 255, 0.12), transparent 28rem),
+        radial-gradient(circle at 54% 92%, rgba(255, 138, 61, 0.14), transparent 32rem),
         linear-gradient(180deg, var(--bg), var(--bg-2));
-      line-height: 1.55;
+      line-height: 1.6;
       min-height: 100vh;
+      text-rendering: optimizeLegibility;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
     }
 
     a {
@@ -60,21 +70,23 @@
       display: block;
       width: 100%;
       height: auto;
+      -webkit-user-drag: none;
+      user-select: none;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(20px);
-      background: rgba(18, 16, 23, 0.78);
+      z-index: 20;
+      backdrop-filter: blur(22px);
+      background: rgba(17, 16, 24, 0.80);
       border-bottom: 1px solid var(--line);
     }
 
     .nav {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 1rem 1.25rem;
+      padding: 0.9rem 1.25rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -82,17 +94,23 @@
     }
 
     .brand {
-      font-size: 0.98rem;
+      font-size: 0.92rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
       gap: 1rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.9rem;
       color: var(--muted);
     }
@@ -107,6 +125,31 @@
       opacity: 1;
     }
 
+    .lang-toggle {
+      display: inline-flex;
+      gap: 0.25rem;
+      padding: 0.25rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(247, 238, 247, 0.05);
+    }
+
+    .lang-btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 0.42rem 0.62rem;
+      background: transparent;
+      color: var(--muted);
+      font: 800 0.74rem/1 var(--sans);
+      cursor: pointer;
+      letter-spacing: 0.06em;
+    }
+
+    .lang-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #111018;
+    }
+
     main {
       max-width: var(--max);
       margin: 0 auto;
@@ -114,58 +157,59 @@
     }
 
     .hero {
-      min-height: 84vh;
+      min-height: 86vh;
       display: grid;
-      grid-template-columns: 0.95fr 1.05fr;
+      grid-template-columns: 0.92fr 1.08fr;
       align-items: center;
       gap: clamp(2rem, 5vw, 4rem);
       padding: 4rem 0 5rem;
     }
 
     .eyebrow {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-size: 0.74rem;
       color: var(--accent-3);
-      font-weight: 800;
+      font-weight: 900;
       margin: 0 0 1rem;
     }
 
     h1, h2, h3 {
-      line-height: 1.04;
+      line-height: 1.03;
       margin: 0;
-      font-weight: 500;
     }
 
     h1 {
-      font-size: clamp(3rem, 9vw, 7.4rem);
-      letter-spacing: -0.06em;
+      max-width: 9ch;
+      font-size: clamp(3.3rem, 9vw, 7.6rem);
+      letter-spacing: -0.075em;
+      font-weight: 850;
     }
 
     h2 {
-      font-size: clamp(2rem, 5vw, 4.5rem);
-      letter-spacing: -0.045em;
+      font-size: clamp(2rem, 5vw, 4.45rem);
+      letter-spacing: -0.055em;
+      font-weight: 820;
       margin-bottom: 1rem;
     }
 
     h3 {
-      font-size: 1.45rem;
-      letter-spacing: -0.02em;
+      font-size: 1.26rem;
+      letter-spacing: -0.03em;
+      font-weight: 780;
     }
 
     .lead {
       max-width: 44rem;
-      font-size: clamp(1.12rem, 2vw, 1.55rem);
+      font-size: clamp(1.12rem, 2vw, 1.48rem);
       color: var(--muted);
       margin: 1.5rem 0 0;
     }
 
     .hero-note {
-      max-width: 37rem;
-      margin: 1.15rem 0 0;
+      max-width: 38rem;
+      margin: 1.1rem 0 0;
       color: var(--soft);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.98rem;
     }
 
@@ -174,7 +218,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.8rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .button {
@@ -185,9 +228,9 @@
       padding: 0.85rem 1.1rem;
       border-radius: 999px;
       border: 1px solid var(--line-strong);
-      background: rgba(247, 237, 247, 0.06);
+      background: rgba(247, 238, 247, 0.06);
       color: var(--ink);
-      font-weight: 800;
+      font-weight: 850;
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
       transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
@@ -200,20 +243,24 @@
 
     .button.primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #120f16;
+      color: #111018;
       border-color: transparent;
+    }
+
+    .hero-card,
+    .protected-frame {
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-card {
       border-radius: var(--radius);
       background:
-        linear-gradient(145deg, rgba(247, 237, 247, 0.09), rgba(247, 237, 247, 0.03)),
-        var(--paper);
+        linear-gradient(145deg, rgba(247, 238, 247, 0.09), rgba(247, 238, 247, 0.03)),
+        var(--card);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
       padding: 0.85rem;
-      position: relative;
-      overflow: hidden;
     }
 
     .hero-card::before {
@@ -231,7 +278,7 @@
     .hero-image {
       width: 100%;
       min-height: 520px;
-      max-height: 680px;
+      max-height: 690px;
       object-fit: contain;
       object-position: center top;
       border-radius: calc(var(--radius) - 10px);
@@ -239,6 +286,25 @@
       background: #18131f;
       position: relative;
       z-index: 1;
+      cursor: zoom-in;
+    }
+
+    .watermark::after {
+      content: "© Semilla Daltónica";
+      position: absolute;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 3;
+      padding: 0.38rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(17, 16, 24, 0.56);
+      color: rgba(247, 238, 247, 0.72);
+      border: 1px solid rgba(247, 238, 247, 0.18);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
     }
 
     section {
@@ -257,7 +323,17 @@
     .section-head p {
       margin: 0;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.06rem;
+    }
+
+    .series-name {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: var(--accent);
+      font-weight: 850;
+      letter-spacing: 0.02em;
     }
 
     .grid {
@@ -267,11 +343,11 @@
     }
 
     .work-card {
-      min-height: 585px;
+      min-height: 690px;
       border-radius: 26px;
       background:
-        linear-gradient(180deg, rgba(247, 237, 247, 0.06), rgba(247, 237, 247, 0.025)),
-        var(--paper);
+        linear-gradient(180deg, rgba(247, 238, 247, 0.06), rgba(247, 238, 247, 0.025)),
+        var(--card);
       border: 1px solid var(--line);
       overflow: hidden;
       box-shadow: 0 18px 55px rgba(0, 0, 0, 0.28);
@@ -279,9 +355,9 @@
     }
 
     .work-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: rgba(255, 138, 61, 0.38);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.36);
+      box-shadow: 0 28px 76px rgba(0, 0, 0, 0.38);
     }
 
     .work-image-img {
@@ -295,21 +371,37 @@
         radial-gradient(circle at 50% 0%, rgba(185, 140, 255, 0.12), transparent 16rem),
         #18131f;
       border-bottom: 1px solid var(--line);
+      cursor: zoom-in;
     }
 
     .work-body {
-      padding: 1.05rem 1rem 1.15rem;
+      padding: 1.05rem 1rem 1.2rem;
     }
 
     .work-body h3 {
       color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.46rem;
+      font-weight: 500;
     }
 
     .meta {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       color: var(--muted);
       margin: 0.45rem 0 0;
+    }
+
+    .work-description {
+      margin: 0.75rem 0 0;
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .availability {
+      margin: 0.85rem 0 0;
+      color: var(--accent-3);
+      font-size: 0.82rem;
+      font-weight: 800;
     }
 
     .split {
@@ -321,8 +413,8 @@
     .panel {
       border-radius: 24px;
       background:
-        linear-gradient(180deg, rgba(247, 237, 247, 0.07), rgba(247, 237, 247, 0.03)),
-        var(--paper);
+        linear-gradient(180deg, rgba(247, 238, 247, 0.07), rgba(247, 238, 247, 0.03)),
+        var(--card);
       border: 1px solid var(--line);
       padding: 1.35rem;
       box-shadow: 0 16px 45px rgba(0, 0, 0, 0.18);
@@ -365,7 +457,6 @@
 
     .year {
       color: var(--accent);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-weight: 900;
     }
 
@@ -388,19 +479,18 @@
     .contact-card p {
       color: var(--muted);
       margin: 1rem 0 0;
-      max-width: 38rem;
+      max-width: 42rem;
     }
 
     .contact-links {
       display: grid;
       gap: 0.7rem;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-weight: 800;
+      font-weight: 850;
     }
 
     .contact-links a {
       color: var(--ink);
-      border-bottom: 1px solid rgba(247, 237, 247, 0.28);
+      border-bottom: 1px solid rgba(247, 238, 247, 0.28);
       padding-bottom: 0.2rem;
     }
 
@@ -408,13 +498,93 @@
       color: var(--accent-3);
     }
 
+    .rights-note {
+      margin-top: 1rem;
+      color: var(--soft);
+      font-size: 0.86rem;
+    }
+
     footer {
       max-width: var(--max);
       margin: 0 auto;
       padding: 2rem 1.25rem 3rem;
       color: var(--soft);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 0.9rem;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem;
+      background: rgba(4, 3, 7, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(96vw, 1180px);
+      max-height: 94vh;
+      border-radius: 24px;
+      background: #111018;
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lightbox-image-wrap {
+      position: relative;
+      background: #111018;
+    }
+
+    .lightbox img {
+      max-height: 82vh;
+      width: 100%;
+      object-fit: contain;
+      background: #111018;
+    }
+
+    .lightbox-caption {
+      padding: 0.9rem 1rem 1rem;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      font-size: 0.95rem;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 2;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(17, 16, 24, 0.72);
+      color: var(--ink);
+      font-size: 1.35rem;
+      line-height: 1;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+
+    .lang-en {
+      display: none;
+    }
+
+    html[data-lang="en"] .lang-es {
+      display: none;
+    }
+
+    html[data-lang="en"] .lang-en {
+      display: revert;
     }
 
     ::selection {
@@ -422,7 +592,7 @@
       color: var(--ink);
     }
 
-    @media (max-width: 940px) {
+    @media (max-width: 960px) {
       .hero,
       .section-head,
       .split,
@@ -438,12 +608,23 @@
       .grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      h1 {
+        max-width: 12ch;
+      }
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 740px) {
       .nav {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .nav-right {
+        width: 100%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.7rem;
       }
 
       .nav-links {
@@ -465,7 +646,7 @@
       }
 
       .work-image-img {
-        height: 390px;
+        height: 420px;
       }
 
       .cv-item {
@@ -479,12 +660,18 @@
   <header class="site-header">
     <nav class="nav" aria-label="Navegación principal">
       <a class="brand" href="#inicio">Semilla Daltónica</a>
-      <div class="nav-links">
-        <a href="#obra">Obra</a>
-        <a href="#statement">Statement</a>
-        <a href="#bio">Bio</a>
-        <a href="#cv">CV</a>
-        <a href="#contacto">Contacto</a>
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#obra"><span class="lang-es">Obra</span><span class="lang-en">Work</span></a>
+          <a href="#statement">Statement</a>
+          <a href="#bio">Bio</a>
+          <a href="#cv">CV</a>
+          <a href="#contacto"><span class="lang-es">Contacto</span><span class="lang-en">Contact</span></a>
+        </div>
+        <div class="lang-toggle" aria-label="Cambiar idioma">
+          <button class="lang-btn active" type="button" data-set-lang="es">ES</button>
+          <button class="lang-btn" type="button" data-set-lang="en">EN</button>
+        </div>
       </div>
     </nav>
   </header>
@@ -492,79 +679,134 @@
   <main>
     <section class="hero" id="inicio" aria-labelledby="titulo-principal">
       <div>
-        <p class="eyebrow">Ilustración · San Martín de los Andes</p>
+        <p class="eyebrow lang-es">Artista e ilustradore</p>
+        <p class="eyebrow lang-en">Artist and illustrator</p>
         <h1 id="titulo-principal">Semilla Daltónica</h1>
-        <p class="lead">
+
+        <p class="lead lang-es">
           Ilustraciones donde la mirada se vuelve materia: figuras femeninas, insectos y mundos mínimos que revelan cómo el lente con que observamos la vida termina dándole sustancia a la realidad.
         </p>
-        <p class="hero-note">
-          Obra en tinta de microfibra y marcadores al alcohol sobre papel. Exploraciones visuales entre percepción, color, metamorfosis y presencia animal.
+        <p class="lead lang-en">
+          Illustrations where the gaze becomes matter: feminine figures, insects and small worlds revealing how the lens through which we observe life ends up giving reality its substance.
         </p>
+
+        <p class="hero-note lang-es">
+          Obra en tinta de microfibra y marcadores al alcohol sobre papel. Una búsqueda íntima entre percepción, color, metamorfosis y presencia animal.
+        </p>
+        <p class="hero-note lang-en">
+          Work made with fineliner ink and alcohol markers on paper. An intimate exploration of perception, color, metamorphosis and animal presence.
+        </p>
+
         <div class="hero-actions">
-          <a class="button primary" href="#obra">Ver obra</a>
-          <a class="button" href="#contacto">Contacto</a>
+          <a class="button primary" href="#obra"><span class="lang-es">Ver obra</span><span class="lang-en">View work</span></a>
+          <a class="button" href="#contacto"><span class="lang-es">Escribirme</span><span class="lang-en">Contact me</span></a>
         </div>
       </div>
 
-      <div class="hero-card" aria-label="Imagen destacada del portfolio">
-        <img class="hero-image" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" />
+      <div class="hero-card protected-frame watermark" aria-label="Imagen destacada del portfolio">
+        <img class="hero-image js-lightbox" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" draggable="false" data-title="Actias luna" />
       </div>
     </section>
 
     <section id="obra" aria-labelledby="obra-title">
       <div class="section-head">
-        <h2 id="obra-title">Obra</h2>
-        <p>
-          Serie de ilustraciones realizadas en 2025. Cada pieza parte del encuentro entre figura, insecto y percepción: organismos que aparecen como símbolos de transformación, extrañeza y belleza mínima.
-        </p>
+        <div>
+          <h2 id="obra-title"><span class="lang-es">Obra</span><span class="lang-en">Work</span></h2>
+          <div class="series-name lang-es">Serie propuesta: La mirada que muda</div>
+          <div class="series-name lang-en">Proposed series: The Gaze That Molts</div>
+        </div>
+        <div>
+          <p class="lang-es">
+            Serie de ilustraciones realizadas en 2025. Cada pieza pone en tensión el rechazo habitual hacia los insectos con una estética de belleza fashion femenina: criaturas que dejan de ser amenaza o rareza para volverse presencia, espejo, ornamento, armadura o compañía.
+          </p>
+          <p class="lang-en">
+            A 2025 illustration series. Each piece creates tension between the common rejection of insects and a feminine fashion-beauty aesthetic: creatures stop being threats or oddities and become presence, mirror, ornament, armor or company.
+          </p>
+        </div>
       </div>
 
       <div class="grid">
         <article class="work-card">
-          <img class="work-image-img" src="scolopendra-gigantea.png" alt="Ilustración Scolopendra gigantea de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="scolopendra-gigantea.png" alt="Ilustración Scolopendra gigantea de Semilla Daltónica" draggable="false" data-title="Scolopendra gigantea" />
+          </div>
           <div class="work-body">
             <h3><em>Scolopendra gigantea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">Una escolopendra rodea el cuerpo como un signo de defensa y deseo. La belleza aparece con filo: no pide permiso para existir, se enrosca, observa y ocupa su lugar.</p>
+            <p class="work-description lang-en">A centipede surrounds the body like a sign of defense and desire. Beauty appears with an edge: it does not ask for permission to exist; it coils, watches and takes its place.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
 
         <article class="work-card">
-          <img class="work-image-img" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="actias-luna.png" alt="Ilustración Actias luna de Semilla Daltónica" draggable="false" data-title="Actias luna" />
+          </div>
           <div class="work-body">
             <h3><em>Actias luna</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">La polilla funciona como una aparición: una criatura nocturna que no interrumpe la escena, sino que la vuelve posible. El cuerpo mira desde abajo, como si aprendiera a existir bajo otra escala.</p>
+            <p class="work-description lang-en">The moth works like an apparition: a nocturnal creature that does not interrupt the scene, but makes it possible. The body looks from below, as if learning to exist on another scale.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
 
         <article class="work-card">
-          <img class="work-image-img" src="grammostola-rosea.png" alt="Ilustración Grammostola rosea de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="grammostola-rosea.png" alt="Ilustración Grammostola rosea de Semilla Daltónica" draggable="false" data-title="Grammostola rosea" />
+          </div>
           <div class="work-body">
             <h3><em>Grammostola rosea</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">La araña deja de ser alarma y se vuelve arquitectura íntima. Entre tela, vestido y patas, la figura aparece sostenida por aquello que normalmente se evita mirar.</p>
+            <p class="work-description lang-en">The spider stops being an alarm and becomes intimate architecture. Between web, dress and legs, the figure appears held by what is usually avoided by the gaze.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
 
         <article class="work-card">
-          <img class="work-image-img" src="hippodamia-convergens.png" alt="Ilustración Hippodamia convergens de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="hippodamia-convergens.png" alt="Ilustración Hippodamia convergens de Semilla Daltónica" draggable="false" data-title="Hippodamia convergens" />
+          </div>
           <div class="work-body">
             <h3><em>Hippodamia convergens</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">Las vaquitas de San Antonio traen una belleza más lúdica, casi supersticiosa. Lo pequeño se multiplica y la suerte adquiere patas, manchas, brillo y una sonrisa desafiante.</p>
+            <p class="work-description lang-en">The lady beetles bring a more playful, almost superstitious beauty. The small multiplies, and luck gains legs, spots, shine and a defiant smile.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
 
         <article class="work-card">
-          <img class="work-image-img" src="dichroplus-elongatus.png" alt="Ilustración Dichroplus elongatus de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="dichroplus-elongatus.png" alt="Ilustración Dichroplus elongatus de Semilla Daltónica" draggable="false" data-title="Dichroplus elongatus" />
+          </div>
           <div class="work-body">
             <h3><em>Dichroplus elongatus</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">El saltamontes acompaña una figura erguida, urbana, casi de paso. Hay una alianza silenciosa entre impulso y quietud: estar listo para saltar sin abandonar el propio eje.</p>
+            <p class="work-description lang-en">The grasshopper accompanies an upright, urban, almost passing figure. There is a silent alliance between impulse and stillness: being ready to jump without leaving one’s axis.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
 
         <article class="work-card">
-          <img class="work-image-img" src="dynastes-hercules.png" alt="Ilustración Dynastes hercules de Semilla Daltónica" />
+          <div class="protected-frame watermark">
+            <img class="work-image-img js-lightbox" src="dynastes-hercules.png" alt="Ilustración Dynastes hercules de Semilla Daltónica" draggable="false" data-title="Dynastes hercules" />
+          </div>
           <div class="work-body">
             <h3><em>Dynastes hercules</em></h3>
             <p class="meta">2025 · Tinta de microfibra y marcadores al alcohol sobre papel · A4, 21 × 29,7 cm</p>
+            <p class="work-description lang-es">El escarabajo hércules aparece como armadura, trono y pregunta. La fuerza no está solo en el tamaño de la criatura, sino en la forma en que el cuerpo aprende a habitarla.</p>
+            <p class="work-description lang-en">The Hercules beetle appears as armor, throne and question. Strength is not only in the creature’s size, but in the way the body learns to inhabit it.</p>
+            <p class="availability lang-es">Prints y reproducciones: consultar disponibilidad.</p>
+            <p class="availability lang-en">Prints and reproductions: ask for availability.</p>
           </div>
         </article>
       </div>
@@ -573,48 +815,72 @@
     <section id="statement" aria-labelledby="statement-title">
       <div class="section-head">
         <h2 id="statement-title">Statement</h2>
-        <p>
-          Una práctica visual atravesada por la percepción, los cuerpos, las criaturas pequeñas y la pregunta por aquello que aparece cuando una imagen es observada con insistencia.
+        <p class="lang-es">
+          Una práctica visual íntima y ligeramente misteriosa, atravesada por la pregunta de cuándo algo empieza realmente a existir: si al ser visto, al ser nombrado o al ser percibido.
+        </p>
+        <p class="lang-en">
+          An intimate and slightly mysterious visual practice, crossed by the question of when something truly begins to exist: when it is seen, named or perceived.
         </p>
       </div>
 
       <div class="panel">
-        <p>
-          Mi obra explora la relación entre mirada y realidad. Me interesa pensar la percepción no como una ventana neutral, sino como una fuerza que modifica lo que toca: un lente capaz de dar cuerpo, color y sustancia a aquello que parecía mínimo, lateral o imperceptible.
-        </p>
-        <p>
-          Trabajo con figuras femeninas, insectos y organismos que aparecen entre lo íntimo y lo extraño. En esas presencias busco una sensibilidad de metamorfosis: cuerpos que observan y son observados, criaturas que funcionan como símbolos de transformación, defensa, belleza, fragilidad o supervivencia.
-        </p>
-        <p>
-          Desde la ilustración en papel, la línea y el color construyen escenas donde lo biológico se vuelve imaginario y lo cotidiano se desplaza hacia una atmósfera más misteriosa. Cada imagen propone una forma de mirar: no para fijar la realidad, sino para sospechar de ella.
-        </p>
+        <div class="lang-es">
+          <p>
+            Mi obra nace de una tensión entre mirar y percibir. Mirar puede ser una forma de encontrarse con algo antes de nombrarlo; percibir, en cambio, ya implica que la razón coloque una etiqueta para darle existencia. Trabajo en ese intervalo: el instante previo a que la realidad quede domesticada por una palabra.
+          </p>
+          <p>
+            Elijo insectos porque suelen provocar rechazo, incomodidad o distancia. Me interesa llevar esas criaturas hacia una estética de belleza fashion femenina, donde lo que parecía extraño pueda volverse deseable, íntimo, elegante o poderoso. La figura y el insecto no se decoran entre sí: se contaminan, se acompañan, se transforman.
+          </p>
+          <p>
+            El color aparece como un territorio experimental. Desde mi daltonismo, no lo pienso como una certeza estable, sino como una búsqueda: una sustancia que se prueba, se corrige, se exagera y se descubre. La tinta sostiene la línea, pero el color abre una zona nueva, más incierta y viva.
+          </p>
+        </div>
+        <div class="lang-en">
+          <p>
+            My work is born from the tension between looking and perceiving. Looking can be a way of encountering something before naming it; perceiving, instead, already implies that reason places a label on it in order to grant it existence. I work within that interval: the instant before reality becomes domesticated by a word.
+          </p>
+          <p>
+            I choose insects because they often generate rejection, discomfort or distance. I am interested in bringing those creatures into a feminine fashion-beauty aesthetic, where what once seemed strange can become desirable, intimate, elegant or powerful. The figure and the insect do not simply decorate one another: they contaminate, accompany and transform each other.
+          </p>
+          <p>
+            Color appears as an experimental territory. Through my color blindness, I do not think of it as a stable certainty, but as a search: a substance that is tested, corrected, exaggerated and discovered. Ink holds the line, while color opens a new, more uncertain and living zone.
+          </p>
+        </div>
       </div>
     </section>
 
     <section id="bio" aria-labelledby="bio-title">
       <div class="section-head">
         <h2 id="bio-title">Bio</h2>
-        <p>
-          Perfil breve para convocatorias, curadores, becas, residencias y contactos profesionales.
+        <p class="lang-es">
+          Perfil breve para convocatorias, proyectos, encargos, muestras y contactos profesionales.
+        </p>
+        <p class="lang-en">
+          Brief profile for open calls, projects, commissions, exhibitions and professional contact.
         </p>
       </div>
 
       <div class="split">
         <div class="panel">
-          <h3>Sobre mí</h3>
-          <p>
-            Semilla Daltónica es ilustradora de San Martín de los Andes, Neuquén, Argentina. Su trabajo desarrolla escenas atravesadas por figuras femeninas, insectos, color y símbolos de metamorfosis, con una búsqueda personal y explorativa sobre la percepción como forma de construir realidad.
+          <h3 class="lang-es">Sobre Semilla</h3>
+          <h3 class="lang-en">About Semilla</h3>
+          <p class="lang-es">
+            Semilla Daltónica es artista e ilustradore de San Martín de los Andes, Neuquén, Argentina. Su trabajo cruza ilustración tradicional, figura femenina, insectos, color y símbolos de metamorfosis. Dibuja desde sus primeros recuerdos y ha usado la imagen como regulador emocional, canalizador espiritual, expresión creativa y política, y también como sustento económico.
+          </p>
+          <p class="lang-en">
+            Semilla Daltónica is an artist and illustrator from San Martín de los Andes, Neuquén, Argentina. Their work crosses traditional illustration, feminine figures, insects, color and symbols of metamorphosis. Drawing has been present since their earliest memories, used as emotional regulation, spiritual channeling, creative and political expression, and also as economic support.
           </p>
         </div>
 
         <div class="panel">
-          <h3>Líneas de trabajo</h3>
-          <ul>
-            <li>Ilustración tradicional sobre papel.</li>
-            <li>Figura femenina, insectos y mundos mínimos.</li>
-            <li>Percepción, metamorfosis y extrañeza sensible.</li>
-            <li>Color, línea, detalle y presencia simbólica.</li>
-          </ul>
+          <h3 class="lang-es">Práctica</h3>
+          <h3 class="lang-en">Practice</h3>
+          <p class="lang-es">
+            Aunque la tinta es su zona de confianza, su práctica se abre cada vez más hacia el color y la mezcla de técnicas. Trabaja principalmente en papel, sin perder interés por las posibilidades de la digitalidad y su amable promesa de Ctrl+Z. Su formación combina talleres, experiencias disponibles y un aprendizaje sostenido entre cuaderno, observación e intuición.
+          </p>
+          <p class="lang-en">
+            Although ink is their comfort zone, their practice is increasingly opening toward color and mixed techniques. They mainly work on paper, while remaining interested in the possibilities of digital media and its gentle promise of Ctrl+Z. Their formation combines workshops, available experiences and a sustained learning process between notebook, observation and intuition.
+          </p>
         </div>
       </div>
     </section>
@@ -622,8 +888,11 @@
     <section id="cv" aria-labelledby="cv-title">
       <div class="section-head">
         <h2 id="cv-title">CV</h2>
-        <p>
-          Esta sección puede completarse con formación, muestras, talleres, convocatorias, residencias, publicaciones y experiencias vinculadas a la ilustración.
+        <p class="lang-es">
+          Trayectoria breve. Esta sección puede ampliarse con nuevas muestras, publicaciones, becas, ferias o colaboraciones.
+        </p>
+        <p class="lang-en">
+          Brief trajectory. This section can be expanded with future exhibitions, publications, grants, fairs or collaborations.
         </p>
       </div>
 
@@ -631,15 +900,28 @@
         <div class="cv-item">
           <div class="year">2025</div>
           <div>
-            <strong>Serie de ilustraciones sobre figura femenina e insectos</strong><br />
-            Tinta de microfibra y marcadores al alcohol sobre papel. Formato A4.
+            <strong class="lang-es">Serie <em>La mirada que muda</em></strong>
+            <strong class="lang-en">Series <em>The Gaze That Molts</em></strong><br />
+            <span class="lang-es">Ilustraciones en tinta de microfibra y marcadores al alcohol sobre papel. Formato A4.</span>
+            <span class="lang-en">Illustrations made with fineliner ink and alcohol markers on paper. A4 format.</span>
+          </div>
+        </div>
+        <div class="cv-item">
+          <div class="year">2020–2021</div>
+          <div>
+            <strong class="lang-es">Ferias de artistas locales</strong>
+            <strong class="lang-en">Local artists’ fairs</strong><br />
+            <span class="lang-es">Participaciones en ferias y espacios locales durante los primeros años de pandemia.</span>
+            <span class="lang-en">Participation in local fairs and spaces during the first years of the pandemic.</span>
           </div>
         </div>
         <div class="cv-item">
           <div class="year">Actual</div>
           <div>
-            <strong>Portfolio artístico digital</strong><br />
-            Desarrollo de obra, presentación profesional y búsqueda de convocatorias artísticas.
+            <strong class="lang-es">Obra, encargos y portfolio artístico digital</strong>
+            <strong class="lang-en">Work, commissions and digital art portfolio</strong><br />
+            <span class="lang-es">Desarrollo de obra original, prints, reproducciones, encargos personalizados y búsqueda de convocatorias.</span>
+            <span class="lang-en">Development of original work, prints, reproductions, custom commissions and open-call research.</span>
           </div>
         </div>
       </div>
@@ -648,28 +930,128 @@
     <section id="contacto" aria-labelledby="contacto-title">
       <div class="contact-card">
         <div>
-          <p class="eyebrow">Contacto</p>
-          <h2 id="contacto-title">Obra, muestras, convocatorias y proyectos.</h2>
-          <p>
-            Para consultas, invitaciones, colaboraciones o solicitud de dossier artístico, escribir por mail o redes.
+          <p class="eyebrow lang-es">Contacto</p>
+          <p class="eyebrow lang-en">Contact</p>
+          <h2 id="contacto-title" class="lang-es">Encargos, convocatorias, comisiones y proyectos.</h2>
+          <h2 class="lang-en">Commissions, open calls, custom work and projects.</h2>
+          <p class="lang-es">
+            Si una imagen te llamó, si querés proponer una colaboración o si estás armando una muestra, escribime. Estoy disponible para encargos personalizados, convocatorias, comisiones, prints y reproducciones con disponibilidad a consultar.
+          </p>
+          <p class="lang-en">
+            If an image stayed with you, if you want to propose a collaboration or if you are organizing an exhibition, write to me. I am available for custom commissions, open calls, projects, prints and reproductions upon availability.
+          </p>
+          <p class="rights-note lang-es">
+            Todas las obras e imágenes publicadas en este sitio pertenecen a Semilla Daltónica. No está autorizado su uso, descarga, reproducción, entrenamiento de sistemas de IA, modificación o redistribución sin permiso escrito.
+          </p>
+          <p class="rights-note lang-en">
+            All artworks and images published on this site belong to Semilla Daltónica. Use, download, reproduction, AI training, modification or redistribution without written permission is not authorized.
           </p>
         </div>
 
         <div class="contact-links" aria-label="Enlaces de contacto">
           <a href="mailto:semilladaltonica@proton.me">semilladaltonica@proton.me</a>
-          <a href="https://github.com/Semilla-Daltonica" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    © <span id="year"></span> Semilla Daltónica. Portfolio artístico digital.
+    © <span id="year"></span> Semilla Daltónica. <span class="lang-es">Todos los derechos reservados.</span><span class="lang-en">All rights reserved.</span>
   </footer>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada de obra">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" aria-label="Cerrar">×</button>
+      <div class="lightbox-image-wrap watermark">
+        <img id="lightbox-image" src="" alt="" draggable="false" />
+      </div>
+      <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+  </div>
+
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const html = document.documentElement;
+    const year = document.getElementById("year");
+    const langButtons = document.querySelectorAll("[data-set-lang]");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.querySelector(".lightbox-close");
+
+    year.textContent = new Date().getFullYear();
+
+    function setLanguage(lang) {
+      html.setAttribute("data-lang", lang);
+      html.setAttribute("lang", lang);
+      langButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.setLang === lang);
+      });
+      try {
+        localStorage.setItem("portfolio-language", lang);
+      } catch (error) {
+        // Local storage may be disabled. The page still works without it.
+      }
+    }
+
+    langButtons.forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.setLang));
+    });
+
+    try {
+      const savedLang = localStorage.getItem("portfolio-language");
+      if (savedLang === "en" || savedLang === "es") {
+        setLanguage(savedLang);
+      }
+    } catch (error) {
+      setLanguage("es");
+    }
+
+    function openLightbox(image) {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxCaption.textContent = image.dataset.title || image.alt || "Semilla Daltónica";
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+      lightboxImage.src = "";
+      lightboxCaption.textContent = "";
+    }
+
+    document.querySelectorAll(".js-lightbox").forEach((image) => {
+      image.addEventListener("click", () => openLightbox(image));
+      image.addEventListener("contextmenu", (event) => event.preventDefault());
+    });
+
+    document.addEventListener("contextmenu", (event) => {
+      if (event.target.closest("img")) {
+        event.preventDefault();
+      }
+    });
+
+    document.addEventListener("dragstart", (event) => {
+      if (event.target.closest("img")) {
+        event.preventDefault();
+      }
+    });
+
+    lightboxClose.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
   </script>
 </body>
 </html>
